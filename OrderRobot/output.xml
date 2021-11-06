@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.2 (Python 3.7.5 on win32)" generated="20211105 16:58:04.621" rpa="false" schemaversion="2">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\ambit.rs\.vscode\extensions\robocorp.robotframework-lsp-0.25.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Open the robot order website">
+<msg timestamp="20211105 16:58:08.319" level="FAIL">No keyword with name 'Open the robot order website' found.</msg>
+<status status="FAIL" starttime="20211105 16:58:08.319" endtime="20211105 16:58:08.320"/>
+</kw>
+<kw name="Log In to RobotSpare">
+<status status="NOT RUN" starttime="20211105 16:58:08.324" endtime="20211105 16:58:08.325"/>
+</kw>
+<kw name="Navigate to Order Page">
+<status status="NOT RUN" starttime="20211105 16:58:08.328" endtime="20211105 16:58:08.328"/>
+</kw>
+<kw name="Get orders">
+<var>${orders}=</var>
+<status status="NOT RUN" starttime="20211105 16:58:08.330" endtime="20211105 16:58:08.330"/>
+</kw>
+<kw name="Get Current Date">
+<var>${currentDate}=</var>
+<arg>result_format=%Y.%m.%d</arg>
+<status status="NOT RUN" starttime="20211105 16:58:08.333" endtime="20211105 16:58:08.333"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${receiptFolder}</var>
+<arg>c:\\EY\\Robocorp\\Order\\OrderRobot${/}output${/}</arg>
+<arg>${currentDate}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="NOT RUN" starttime="20211105 16:58:08.333" endtime="20211105 16:58:08.333"/>
+</kw>
+<kw name="Create Directory">
+<arg>${receiptFolder}</arg>
+<status status="NOT RUN" starttime="20211105 16:58:08.335" endtime="20211105 16:58:08.335"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{orders}</value>
+<iter>
+<var name="${row}">${row}</var>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>5x</arg>
+<arg>5s</arg>
+<arg>Fill the form</arg>
+<arg>${row}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<status status="NOT RUN" starttime="20211105 16:58:08.336" endtime="20211105 16:58:08.336"/>
+</kw>
+<kw name="Store the receipt as a PDF file">
+<var>${pdf}=</var>
+<arg>${receiptFolder}${/}${row}[Order number].pdf</arg>
+<status status="NOT RUN" starttime="20211105 16:58:08.349" endtime="20211105 16:58:08.349"/>
+</kw>
+<kw name="Take a screenshot of the robot">
+<var>${screenshot}=</var>
+<arg>c:\\EY\\Robocorp\\Order\\OrderRobot${/}output${/}${row}[Order number].png</arg>
+<status status="NOT RUN" starttime="20211105 16:58:08.357" endtime="20211105 16:58:08.360"/>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<var>${screenshotList}</var>
+<arg>${screenshot}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" starttime="20211105 16:58:08.361" endtime="20211105 16:58:08.362"/>
+</kw>
+<kw name="Embed the robot screenshot to the receipt PDF file">
+<arg>${screenshotList}</arg>
+<arg>${pdf}</arg>
+<status status="NOT RUN" starttime="20211105 16:58:08.364" endtime="20211105 16:58:08.364"/>
+</kw>
+<kw name="Go to order another robot">
+<status status="NOT RUN" starttime="20211105 16:58:08.370" endtime="20211105 16:58:08.371"/>
+</kw>
+<status status="NOT RUN" starttime="20211105 16:58:08.335" endtime="20211105 16:58:08.371"/>
+</iter>
+<status status="NOT RUN" starttime="20211105 16:58:08.335" endtime="20211105 16:58:08.371"/>
+</for>
+<kw name="Create a ZIP file of the receipts">
+<arg>${receiptFolder}</arg>
+<status status="NOT RUN" starttime="20211105 16:58:08.383" endtime="20211105 16:58:08.383"/>
+</kw>
+<status status="PASS" starttime="20211105 16:58:04.677" endtime="20211105 16:58:37.297"/>
+</kw>
+<status status="PASS" starttime="20211105 16:58:04.677" endtime="20211105 16:58:37.297"/>
+</test>
+<status status="PASS" starttime="20211105 16:58:04.628" endtime="20211105 16:58:37.297"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
